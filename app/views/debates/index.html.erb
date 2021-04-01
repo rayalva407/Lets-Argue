@@ -1,3 +1,3 @@
 <% @debates.each do |debate|%>
-  <li><%= debate.title %></li>
+  <li><%= link_to debate.title, debate_path(debate) %></li>
 <% end %>

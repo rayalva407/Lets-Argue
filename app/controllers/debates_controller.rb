@@ -4,6 +4,7 @@ class DebatesController < ApplicationController
   end
 
   def show
+    @debate = Debate.find(params[:id])
   end
 
   def new
