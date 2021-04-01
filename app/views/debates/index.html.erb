@@ -1,2 +1,3 @@
-<h1>Debates#index</h1>
-<p>Find me in app/views/debates/index.html.erb</p>
+<% @debates.each do |debate|%>
+  <li><%= debate.title %></li>
+<% end %>
