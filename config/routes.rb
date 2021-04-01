@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :debates
   resources :users
 
   get '/signin' => 'sessions#new'

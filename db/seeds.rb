@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create(email: "email@email.com", password: "password", username: "stucklucky")
+User.create(email: "email1@email.com", password: "password1", username: "randomdude")
+User.create(email: "email2@email.com", password: "password2", username: "whatever")
+
+Debate.create(title: "Title", body: "This is a cool body", category: "opinions")
+Debate.create(title: "Legalize Marijuana", body: "Marijuana should be legalized because I love it", category: "politics")
+Debate.create(title: "God Is Not Real", body: "God is not real because I never seen him.", category: "religion")
