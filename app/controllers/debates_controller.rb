@@ -8,12 +8,14 @@ class DebatesController < ApplicationController
   end
 
   def new
+    @debate = Debate.new
   end
 
   def edit
   end
 
   def create
+    @debate = Debate.find(debate_params)
   end
 
   def update
@@ -21,4 +23,10 @@ class DebatesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+    def debate_params
+      params.require(:debate).permit(:title, :body, :category)
+    end
 end
