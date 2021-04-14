@@ -13,7 +13,8 @@ class DebatesController < ApplicationController
   end
 
   def new
-    @debate = Debate.new
+    @user = current_user
+    @debate = @user.debates.new
   end
 
   def edit
@@ -21,9 +22,9 @@ class DebatesController < ApplicationController
 
   def create
     @user = current_user
-    @debate = Debate.new(debate_params)
+    @debate = @user.debates.new(debate_params)
     if @debate.save
-     redirect_to user_debate_path(@user, @debate) 
+      redirect_to debate_path(@debate) 
     else
       render :new
     end
@@ -38,6 +39,6 @@ class DebatesController < ApplicationController
   private
 
     def debate_params
-      params.require(:debate).permit(:title, :body, :category)
+      params.require(:debate).permit(:title, :body, :category, :user_id)
     end
 end
