@@ -4,6 +4,7 @@
   <li><%= m %></li>
 <% end %>
 
+<% if params[:user_id] %>
   <%= form_for @debate do |f| %>
     <%= f.label :title %> <br>
     <%= f.text_field :title %> <br><br>
@@ -16,4 +17,7 @@
     
 
     <%= f.submit "Create Debate" %>
+
   <% end %>
+
+<% end %>

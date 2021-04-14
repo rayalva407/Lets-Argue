@@ -1,6 +1,11 @@
 class DebatesController < ApplicationController
   def index
-    @debates = Debate.all
+    if params[:user_id]
+      @user = current_user
+      @debates = @user.debates
+    else
+      @debates = Debate.all
+    end
   end
 
   def show
@@ -15,7 +20,13 @@ class DebatesController < ApplicationController
   end
 
   def create
-    @debate = Debate.find(debate_params)
+    @user = current_user
+    @debate = Debate.new(debate_params)
+    if @debate.save
+     redirect_to user_debate_path(@user, @debate) 
+    else
+      render :new
+    end
   end
 
   def update

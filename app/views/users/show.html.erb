@@ -1,4 +1,5 @@
 <h1>Hello <%= @user.username %></h1>
 
 <%= link_to 'Look at all the debates', debates_path %> <br>
-<%= link_to 'Create a debate', new_debate_path %>
+<%= link_to 'Create a debate', new_user_debate_path(@user) %> <br>
+<%= link_to 'Your Debates', user_debates_path(@user) %>
